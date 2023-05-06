@@ -61,7 +61,7 @@ resource "google_sql_database" "database" {
 
 resource "google_sql_user" "users" {
   name     = "playuser"
-  instance = google_sql_database_instance.main.name
+  instance = google_sql_database_instance.instance.name
   host     = "172.31.0.3"
   password = "123456"
 }
