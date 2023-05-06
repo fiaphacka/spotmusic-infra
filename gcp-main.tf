@@ -51,3 +51,17 @@ resource "google_sql_database_instance" "instance" {
     }
   }
 }
+
+resource "google_sql_database" "database" {
+  name     = "playlist"
+  instance = google_sql_database_instance.instance.name
+  charset = "utf8"
+	collation = "utf8_general_ci"
+}
+
+resource "google_sql_user" "users" {
+  name     = "playuser"
+  instance = google_sql_database_instance.main.name
+  host     = "172.31.0.3"
+  password = "123456"
+}
