@@ -37,7 +37,7 @@ resource "google_sql_database_instance" "instance" {
   provider = google
 
   name             = "private-instance-${random_id.spot_db_name_suffix.hex}"
-  region           = "var.region
+  region           = var.region
   database_version = "MYSQL_8_0"
 
   depends_on = [google_service_networking_connection.private_vpc_connection]
